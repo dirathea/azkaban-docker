@@ -1,4 +1,4 @@
-FROM openjdk:8-slim-buster
+FROM openjdk:8-stretch
 
 COPY --from=dirathea/azkaban-base:3.81.0 /azkaban/azkaban-web-server/build/install/azkaban-web-server/ azkaban
 
