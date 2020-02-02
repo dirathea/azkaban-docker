@@ -1,6 +1,8 @@
+ARG BASE_VERSION=latest
+FROM dirathea/azkaban-base:${BASE_VERSION} as base
 FROM openjdk:8-slim-buster
 
-COPY --from=dirathea/azkaban-base:3.81.0 /azkaban/azkaban-exec-server/build/install/azkaban-exec-server/ azkaban
+COPY --from=base /azkaban/azkaban-exec-server/build/install/azkaban-exec-server/ azkaban
 
 WORKDIR /azkaban/bin
 
