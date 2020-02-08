@@ -7,6 +7,6 @@ COPY --from=base /azkaban/azkaban-solo-server/build/install/azkaban-solo-server/
 
 WORKDIR /azkaban
 COPY bootstrap.sh bin/
-RUN chmod +x bootstrap.sh
+RUN chmod +x bin/bootstrap.sh
 
 ENTRYPOINT [ "bin/bootstrap.sh" ]
