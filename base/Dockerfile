@@ -1,6 +1,6 @@
 FROM openjdk:8-stretch
 
-ARG AZKABAN_VERSION
+ARG AZKABAN_VERSION=3.81.0
 
 ENV AZKABAN_DOWNLOAD_URL https://github.com/azkaban/azkaban/archive/${AZKABAN_VERSION}.zip
 
