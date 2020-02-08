@@ -1,6 +1,6 @@
 #!/bin/bash
 
-installdir="$(dirname $0)/../.."
+installdir="$(dirname $0)/.."
 
 # Specifies location of azkaban.properties, log4j.properties files
 # Change if necessary
@@ -12,7 +12,7 @@ azkaban()
     set -o nounset   # exit the script if you try to use an uninitialised variable
     set -o errexit   # exit the script if any statement returns a non-true return value
 
-    source "$(dirname $0)/util.sh"
+    source "$(dirname $0)/internal/util.sh"
 
     currentpidfile="${installdir}/currentpid"
 
