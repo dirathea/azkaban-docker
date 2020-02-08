@@ -77,6 +77,5 @@ compgen -A variable AZK_ | while read v; do
     echo "$TARGET_PROPERTIES=${!v}" >> $conf/azkaban.properties
 done
 
-cat $conf/azkaban.properties
-
+echo "Starting Azkaban Process"
 azkaban

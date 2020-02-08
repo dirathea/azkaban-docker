@@ -69,6 +69,5 @@ compgen -A variable AZK_ | while read v; do
     sed -i "s/\($TARGET_PROPERTIES=\).*\$/\1${!v}/" $conf/azkaban.properties
 done
 
-cat $conf/azkaban.properties
-
+echo "Starting Azkaban Process"
 azkaban
