@@ -6,5 +6,7 @@ FROM openjdk:8-stretch
 COPY --from=base /azkaban/azkaban-solo-server/build/install/azkaban-solo-server/ azkaban
 
 WORKDIR /azkaban/bin
+COPY bootstrap.sh .
+RUN chmod +x bootstrap.sh
 
-ENTRYPOINT [ "bash", "-c", "./start-solo.sh && sleep 1 && tail -f soloServerLog__*.out" ]
+ENTRYPOINT [ "./bootstrap.sh" ]
