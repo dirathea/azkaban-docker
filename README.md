@@ -10,6 +10,14 @@ Azkaban doesn't come with docker container yet. So I tried to make docker image 
 
 Has docker installed on your machine
 
+### Configuration
+
+To add configuration on image, add environment variable with prefix `AZK_` followed by properties key to be replaced on `azkaban.properties`.
+For example, to configure `mysql.host`, add `AZK_MYSQL_HOST` environment. The complete azkaban properties could be found on the following links
+- [Solo server configuration](https://github.com/azkaban/azkaban/blob/master/azkaban-solo-server/src/main/resources/conf/azkaban.properties)
+- [Web server configuration](https://github.com/azkaban/azkaban/blob/master/azkaban-web-server/src/main/resources/conf/azkaban.properties)
+- [Exec server configuration](https://github.com/azkaban/azkaban/blob/master/azkaban-exec-server/src/main/resources/conf/azkaban.properties)
+
 ### Installing
 
 There are two type of azkaban server, solo or multi executor mode
