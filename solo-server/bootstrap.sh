@@ -73,7 +73,8 @@ echo "Searching for AZK_ environment variable"
 compgen -A variable AZK_ | while read v; do
     TARGET_PROPERTIES=$(echo ${v:4} | tr '[:upper:]' '[:lower:]' | tr '_' '.')
     echo "Replacing $TARGET_PROPERTIES to properties with ${!v}";
-    sed -i "s/\($TARGET_PROPERTIES=\).*\$/\1${!v}/" $conf/azkaban.properties
+    grep -q $TARGET_PROPERTIES $conf/azkaban.properties && sed -i "s/\($TARGET_PROPERTIES=\).*\$/\1${!v}/" $conf/azkaban.properties || \
+    echo "$TARGET_PROPERTIES=${!v}" >> $conf/azkaban.properties
 done
 
 cat $conf/azkaban.properties
