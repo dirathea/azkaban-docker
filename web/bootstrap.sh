@@ -70,5 +70,13 @@ compgen -A variable AZK_ | while read v; do
     echo "$TARGET_PROPERTIES=${!v}" >> $conf/azkaban.properties
 done
 
+echo "Searching for GLOBAL_ environment variable"
+compgen -A variable GLOBAL_ | while read v; do
+    TARGET_PROPERTIES=$(echo ${v:4} | tr '[:upper:]' '[:lower:]' | tr '_' '.')
+    echo "Replacing $TARGET_PROPERTIES to global properties";
+    grep -q $TARGET_PROPERTIES $conf/global.properties && sed -i "s/\($TARGET_PROPERTIES=\).*\$/\1${!v}/" $conf/global.properties || \
+    echo "$TARGET_PROPERTIES=${!v}" >> $conf/global.properties
+done
+
 echo "Starting Azkaban Process"
 azkaban
